@@ -1,4 +1,4 @@
-# Generated from C:/Users/User/antlr4_Python3_examples/polyProg/Poly.g4 by ANTLR 4.13.1
+# Generated from C:/Users/User/Desktop/polyProg_lab_5/polyProg/Poly.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .PolyParser import PolyParser

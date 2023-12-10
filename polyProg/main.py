@@ -1,11 +1,11 @@
 from antlr4 import *
-from interpreter.PolyLexer import PolyLexer
-from interpreter.PolyParser import PolyParser
+from PolyLexer import PolyLexer
+from PolyParser import PolyParser
 
 def beautify_lisp_string(in_string):
     indent_size = 3
     add_indent = ' '*indent_size
-    out_string = in_string[0]  # no indent for 1st (
+    out_string = in_string[0]  
     indent = ''
     for i in range(1, len(in_string)):
         if in_string[i] == '(' and in_string[i+1] != ' ':
@@ -19,7 +19,7 @@ def beautify_lisp_string(in_string):
             out_string += in_string[i]
     return out_string
     
-file_name = r"C:\Users\User\\antlr4_Python3_examples\\polyProg\\main.pol"
+file_name = r"C:\Users\User\Desktop\polyProg_lab_5\polyProg\main.pol"
 input_stream = FileStream(file_name)
 lexer = PolyLexer(input_stream)
 print('input_stream:')
@@ -36,4 +36,4 @@ parser = PolyParser(token_stream)
 tree = parser.program()
 print('tree:')
 lisp_tree_str = tree.toStringTree(recog=parser)
-print(beautify_lisp_string(lisp_tree_str))
+#print(beautify_lisp_string(lisp_tree_str))

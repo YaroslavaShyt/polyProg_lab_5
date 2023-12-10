@@ -40,11 +40,11 @@ multiplicativeExpression: powerExpression ( ('*' | '/') powerExpression)* ;
 
 powerExpression: unaryExpression ( '^' unaryExpression )* ;
 
-unaryExpression: ('+' | '-')? primaryExpression ;
+unaryExpression: '-'? primaryExpression ;
 
 primaryExpression: ID | INT | FLOAT | 'true' | 'false' | '(' expression ')' ;
 
-boolExpression: additiveExpression ( ('==' | '!=' | '<' | '<=' | '>' | '>=') additiveExpression)?;
+boolExpression: additiveExpression ( ('==' | '!=' | '<' | '<=' | '>' | '>=') additiveExpression)+;
 
 COMMENT: '//' ~[\r\n]* -> skip;
 
