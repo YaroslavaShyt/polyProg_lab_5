@@ -24,9 +24,9 @@ forStatement: 'for' '(' assignment ';' boolExpression ';' assignment ')' '{' sta
 
 doWhileStatement: 'do' '{' statement* '}' 'while' '(' boolExpression ')' ;
 
-printStatement: 'print' '(' printArgument (',' printArgument)* ')' ;
+printStatement: 'print' '(' printArgument ')' ;
 
-printArgument: expression ;
+printArgument: expression | boolVal;
 
 readlineStatement: 'readline' '(' ID (',' ID)* ')' ;
 
@@ -42,9 +42,11 @@ powerExpression: unaryExpression ( '^' unaryExpression )* ;
 
 unaryExpression: '-'? primaryExpression ;
 
-primaryExpression: ID | INT | FLOAT | 'true' | 'false' | '(' expression ')' ;
+primaryExpression: ID | INT | FLOAT | '(' expression ')' ;
 
-boolExpression: additiveExpression ( ('==' | '!=' | '<' | '<=' | '>' | '>=') additiveExpression)+;
+boolVal: 'true' | 'false';
+
+boolExpression: (additiveExpression | boolVal) ( ('==' | '!=' | '<' | '<=' | '>' | '>=') (additiveExpression | boolVal))+;
 
 COMMENT: '//' ~[\r\n]* -> skip;
 

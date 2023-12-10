@@ -233,6 +233,15 @@ class PolyListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PolyParser#boolVal.
+    def enterBoolVal(self, ctx:PolyParser.BoolValContext):
+        pass
+
+    # Exit a parse tree produced by PolyParser#boolVal.
+    def exitBoolVal(self, ctx:PolyParser.BoolValContext):
+        pass
+
+
     # Enter a parse tree produced by PolyParser#boolExpression.
     def enterBoolExpression(self, ctx:PolyParser.BoolExpressionContext):
         pass
